@@ -1,0 +1,39 @@
+<%- include('partials/header'); %>
+
+
+
+        <!-- Page content-->
+        <div class="container mt-5">
+		<div class="row">
+		    <div class="col-lg-8">
+			<!-- Post content-->
+			<article>
+				<% for(var i = 0; i< tasks.length; i++){ %>
+					 <% if(tasks[i].status == true) {%>
+			    <!-- Post header-->
+			    <header class="mb-4">
+				<!-- Post title-->
+				<h1 class="fw-bolder mb-1"><%= tasks[i].title %></h1>
+				
+				<!-- Post categories-->
+				<a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+				<a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+			    </header>
+			    <!-- Preview image figure-->
+			    <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+			    <!-- Post content-->
+			    <section class="mb-5">
+				<p class="fs-5 mb-4"><%= tasks[i].description %></p>
+				
+				<!-- <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2> -->
+			    </section>
+			</article>
+			
+
+		<%  } else  {  %>	
+			<!-- <h1>No hay nada</h1> -->
+		<%  }  %>	
+
+		<% } %>
+
+<%- include('partials/footer'); %>

@@ -1,0 +1,44 @@
+<%- include('../partials/header'); %>
+
+<div class="container">
+       <h1 class="offset-md-4">Actualizar registro</h1>
+	<div class="row">
+	  <!-- FORMULARIO -->
+
+	  <div class="col-md-5 offset-md-3">
+	    <div class="card">
+	      <div class="card-body">
+		 <form action="/admin/task/edit/<%= tasks.id %>" method="POST">
+
+		 <div class="form-group">
+		    <input type="text" name="title" placeholder="Inserta un titulo" value="<%= tasks.title %>" class="form-control">
+		 </div>
+
+		  <br>
+
+		 <div class="form-group">
+			<textarea type="text" cols="80" name="description" placeholder="Inserta un descripción" class="form-control"><%= tasks.description %></textarea>
+		</div> 
+		<br>
+		<div class="d-grid gap-2">
+			<button type="submit" name="button" class="btn btn-primary">Actualizar</button>
+		</div>
+		
+
+
+		 </form>
+
+
+
+	      </div>
+	      
+	    </div>
+
+	  </div>
+
+
+
+
+
+
+<%- include('../partials/footer'); %>

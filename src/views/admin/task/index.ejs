@@ -1,0 +1,85 @@
+    <%- include('../partials/header.ejs'); %>
+    
+    
+    
+	<div class="container">
+		
+		<div class="row">
+                  <!-- FORMULARIO -->
+		  <div class="col-md-5">
+                    <div class="card">
+                      <div class="card-body">
+                         <form action="/admin/task/add" method="POST">
+
+                         <div class="form-group">
+                            <input type="text" name="title" value="" placeholder="Inseta un titulo" class="form-control">
+			 </div>
+
+                          <br>
+
+			 <div class="form-group">
+				<textarea type="text" cols="80" name="description" value="" placeholder="Inseta un descripción" class="form-control"></textarea>
+			</div> 
+			<br>
+                                <button type="submit" name="button" class="btn btn-primary">Agregar</button>
+
+				<button type="reset" name="button" class="btn btn-success">Limpiar</button>
+
+
+			 </form>
+
+
+
+
+
+		      </div>
+
+		    </div>
+
+		  </div>
+                          
+ <!-- TABLA -->
+ <div class="col-md-7">
+	<table class="table table-success table-bordered table-hover">
+	  <thead>
+	   <tr>  
+		   <th>ID</th>
+		   <th>Titulo</th>
+		   <th>Descripcion</th>
+		   <th>Operaciones</th>
+	   </tr>
+
+	  </thead>
+       <tbody>
+      
+
+
+       </tbody> 
+       <% for(var i = 0; i< tasks.length; i++){ %>
+            <tr>
+               <td><%= i + 1  %></td>
+	       <td><%= tasks[i].title  %></td>
+               <td><%= tasks[i].description  %></td>
+               <td>
+		       <a href="/admin/task/done/<%= tasks[i].id %>" class="btn <%= tasks[i].status ? 'btn-info' : 'btn-dark' %>">
+			
+			Hecho</button>
+		       <a href="/admin/task/edit/<%= tasks[i].id %>" button class="btn btn-success">Editar</button>
+		       <a href="/admin/task/delete/<%= tasks[i].id %>" button class="btn btn-danger">Eliminar</button>
+	       </td>
+
+
+
+	    </tr>
+
+
+       <% } %>
+	</table>
+
+
+     </div>
+
+
+	    </div> 
+	</div>
+    <%- include('../partials/footer'); %>
