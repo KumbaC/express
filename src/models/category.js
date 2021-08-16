@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var task = mongoose.model('task');
+//var task = mongoose.model('Task');
 
-var categorySchema = new Schema({
+const CategorySchema = new Schema({
+    
     name: String,
     slug: String,
-    
-    task: { type: Schema.ObjectId, ref: "task" }
+
+    task_id: { type: Schema.ObjectId, ref: 'task' }
 });
 
-module.exports = mongoose.model("categories", categorySchema);
+module.exports = mongoose.model('category', CategorySchema);

@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var task = mongoose.model('task');
 
 
 var userSchema = new Schema({
@@ -8,7 +7,6 @@ var userSchema = new Schema({
   email: String,
   key: String,
 
-  task: { type: Schema.ObjectId, ref: "task" }
 });
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model('user', userSchema);

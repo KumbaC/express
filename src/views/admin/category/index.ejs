@@ -1,0 +1,86 @@
+<%- include('../partials/header.ejs'); %>
+
+<div class="container">
+		
+	<div class="row">
+	  <!-- FORMULARIO -->
+	  <div class="col-md-5">
+	    <div class="card">
+	      <div class="card-body">
+		 <form action="/admin/category/add" method="POST">
+
+		 <div class="form-group">
+		    <input type="text" name="title" value="" placeholder="Inserte un nombre para la categoria" class="form-control">
+		 </div>
+
+		  <br>
+
+		 <div class="form-group">
+			<input type="text" cols="80" name="slug" value=""  class="form-control">
+		</div> 
+		<br>
+			<button type="submit" name="button" class="btn btn-primary">Agregar</button>
+
+			<button type="reset" name="button" class="btn btn-success">Limpiar</button>
+
+
+		 </form>
+
+
+
+
+
+	      </div>
+
+	    </div>
+
+	  </div>
+		  
+<!-- TABLA -->
+<div class="col-md-7">
+<table class="table table-primary table-bordered table-hover">
+  <thead>
+   <tr>  
+	   <th>ID</th>
+	   <th>Nombre</th>
+	   <th>Operaciones</th>
+   </tr>
+
+  </thead>
+<tbody>
+
+
+
+</tbody> 
+<% for(var i = 0; i< categories.length; i++){ %>
+    <tr>
+       <td><%= i + 1  %></td>
+       <td><%= categories[i].name  %></td>
+       <td>
+	       <a href="/admin/category/done/<%= tasks[i].id %>" class="btn <%= categories[i].status ? 'btn-info' : 'btn-dark' %>">
+		
+		Hecho</button>
+	       <a href="/admin/category/edit/<%= tasks[i].id %>" button class="btn btn-success">Editar</button>
+	       <a href="/admin/category/delete/<%= tasks[i].id %>" button class="btn btn-danger">Eliminar</button>
+       </td>
+
+
+
+    </tr>
+
+
+<% } %>
+</table>
+
+
+</div>
+
+
+    </div> 
+</div>
+
+
+
+
+
+<%- include('../partials/footer'); %>
